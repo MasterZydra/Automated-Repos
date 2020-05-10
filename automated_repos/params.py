@@ -7,3 +7,6 @@ class Params(object):
             self.arg0 = self.args[0]
         except:
             self.arg0 = None
+    
+    def getNextArgLevel(self):
+        return self.args[1:]
