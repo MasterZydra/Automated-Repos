@@ -14,5 +14,9 @@ class GitMessages_DE(GitMessages):
         return "nichts zu committen, Arbeitsverzeichnis unverändert"
 
     @staticmethod
+    def GIT_SUCCESSFUL_PUSH():
+        return "Resolving deltas: *., completed with *. local objects."
+
+    @staticmethod
     def GIT_UNCOMMITED_NEW_FILES():
         return "Unversionierte Dateien:"
