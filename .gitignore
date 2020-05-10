@@ -2,5 +2,8 @@
 __pycache__/
 *.pyc
 
+# IDE
+*.code-workspace
+
 # macOS
 .DS_Store
