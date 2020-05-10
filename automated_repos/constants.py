@@ -1,5 +1,6 @@
 # Terminal commands
 GIT_HELP = "git --help"
+GIT_PUSH = "git push"
 GIT_STATUS = "git status"
 GIT_VERSION = "git --version"
 
