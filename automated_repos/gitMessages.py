@@ -14,5 +14,9 @@ class GitMessages(abc.ABC):
         return
 
     @abc.abstractstaticmethod
+    def GIT_SUCCESSFUL_PUSH():
+        return
+
+    @abc.abstractstaticmethod
     def GIT_UNCOMMITED_NEW_FILES():
         return
