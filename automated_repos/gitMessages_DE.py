@@ -7,7 +7,7 @@ class GitMessages_DE(GitMessages):
 
     @staticmethod
     def GIT_LOCAL_COMMITS():
-        return "Ihr Branch ist .* Commits vor"
+        return "Ihr Branch ist .* Commits? vor"
 
     @staticmethod
     def GIT_NOTHING_TO_COMMIT():
