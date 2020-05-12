@@ -18,7 +18,7 @@ class GitWrapper(object):
 
     @staticmethod
     def gitStatus():
-        return os.popen(constants.GIT_STATUS).read()
+        return os.popen(constants.GIT_STATUS + " 2>&1").read()
 
     @staticmethod
     def gitVersion():
@@ -27,6 +27,11 @@ class GitWrapper(object):
     @staticmethod
     def isGitInstalled():
         return GitWrapper.gitVersion().startswith('git version')
+
+    @staticmethod
+    def isFolderGitRepo(gitMessages: GitMessages):
+        status = GitWrapper.gitStatus()
+        return not Regex.contains(gitMessages.NO_GIT_REPOSITORY(), status)
 
     @staticmethod
     def getGitLanguage():
