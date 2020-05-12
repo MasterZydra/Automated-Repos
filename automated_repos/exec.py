@@ -9,15 +9,15 @@ from .params import Params
 
 class Exec(object):
     def __init__(self, params: Params):
-        self.params = params
-        self.gitMessages = None
+        self.__params = params
+        self.__gitMessages = None
     
     def run(self):
-        if self.params.arg0 in ('--help', 'help'):
+        if self.__params.arg0 in ('--help', 'help'):
             self.__printHelp()
             return
         
-        elif len(self.params.args) == 0: # or -- all ....
+        elif len(self.__params.args) == 0: # or -- all ....
             if not GitWrapper.isGitInstalled():
                 print(constants.ERROR + constants.MSG_NO_GIT_INSTALLED)
             
@@ -28,17 +28,17 @@ class Exec(object):
         else:
             self.__printHelp()
             return
-    
+
     def __importGitMessages(self, langauge: GitLanguages):
         if langauge == GitLanguages.UNKNOWN:
             print(constants.ERROR + constants.MSG_LANG_IS_UNKNOWN)
             return False
         if langauge == GitLanguages.DE:
             from .gitMessages_DE import GitMessages_DE
-            self.gitMessages = GitMessages_DE
+            self.__gitMessages = GitMessages_DE
         elif langauge == GitLanguages.EN:
             from .gitMessages_EN import GitMessages_EN
-            self.gitMessages = GitMessages_EN
+            self.__gitMessages = GitMessages_EN
         else:
             print(constants.ERROR + constants.MSG_LANG_NOT_SUPPORTED)
             return False
