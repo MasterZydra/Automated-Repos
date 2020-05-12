@@ -4,7 +4,7 @@ import re
 # Import helper classes
 from . import help_exec
 from . import constants
-from .gitConfig import GitConfig
+from .gitWrapper import GitWrapper
 from .gitLanguages import GitLanguages
 from .params import Params
 
@@ -19,10 +19,10 @@ class Exec(object):
             return
         
         elif len(self.params.args) == 0: # or -- all ....
-            if not GitConfig.isGitInstalled():
+            if not GitWrapper.isGitInstalled():
                 print(constants.ERROR + constants.MSG_NO_GIT_INSTALLED)
             
-            if not self.__importGitMessages(GitConfig.getGitLanguage()):
+            if not self.__importGitMessages(GitWrapper.getGitLanguage()):
                 return
             
 
