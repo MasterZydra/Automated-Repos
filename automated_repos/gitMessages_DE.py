@@ -20,3 +20,7 @@ class GitMessages_DE(GitMessages):
     @staticmethod
     def GIT_UNCOMMITED_NEW_FILES():
         return "Unversionierte Dateien:"
+    
+    @staticmethod
+    def NO_GIT_REPOSITORY():
+        return "fatal: Kein Git-Repository \(oder irgendeines der Elternverzeichnisse\): \.git"

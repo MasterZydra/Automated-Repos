@@ -20,3 +20,8 @@ class GitMessages_EN(GitMessages):
     @staticmethod
     def GIT_UNCOMMITED_NEW_FILES():
         return "Untracked files:"
+
+    @staticmethod
+    def NO_GIT_REPOSITORY():
+        return "fatal: not a git repository \(or any of the parent directories\): \.git"
+        

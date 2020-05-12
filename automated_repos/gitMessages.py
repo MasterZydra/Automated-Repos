@@ -20,3 +20,7 @@ class GitMessages(abc.ABC):
     @abc.abstractstaticmethod
     def GIT_UNCOMMITED_NEW_FILES():
         return
+    
+    @abc.abstractstaticmethod
+    def NO_GIT_REPOSITORY():
+        return
