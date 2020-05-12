@@ -1,5 +1,4 @@
 import os
-import re
 
 # Import helper classes
 from . import help_exec
@@ -25,17 +24,7 @@ class Exec(object):
             if not self.__importGitMessages(GitWrapper.getGitLanguage()):
                 return
             
-
-
-            s = os.popen(constants.GIT_STATUS).read()
-            if re.search(self.gitMessages.GIT_CHANGES_IN_COMMITED_FILES(), s.lower(), re.IGNORECASE | re.MULTILINE):
-                print(self.gitMessages.GIT_CHANGES_IN_COMMITED_FILES())
-            if re.search(self.gitMessages.GIT_LOCAL_COMMITS(), s, re.IGNORECASE | re.MULTILINE):
-                print(self.gitMessages.GIT_LOCAL_COMMITS())
-            if re.search(self.gitMessages.GIT_NOTHING_TO_COMMIT(), s, re.IGNORECASE | re.MULTILINE):
-                print(self.gitMessages.GIT_NOTHING_TO_COMMIT())
-            if re.search(self.gitMessages.GIT_UNCOMMITED_NEW_FILES(), s, re.IGNORECASE | re.MULTILINE):
-                print(self.gitMessages.GIT_UNCOMMITED_NEW_FILES())
+            status = GitWrapper.getGitStatus(self.__gitMessages)
         else:
             self.__printHelp()
             return
