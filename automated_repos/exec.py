@@ -3,8 +3,11 @@ import os
 # Import helper classes
 from . import help_exec
 from . import constants
+from .aureConfig import AureConfig
+from .configReader import ConfigReader
 from .gitWrapper import GitWrapper
 from .gitLanguages import GitLanguages
+from .gitStatus import GitStatus
 from .params import Params
 
 class Exec(object):
