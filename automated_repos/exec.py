@@ -20,6 +20,10 @@ class Exec(object):
         elif len(self.__params.args) == 0: # or -- all ....
             if not self.__checkEnv():
                 return
+
+            # Check if folder is a git repositories
+            if not GitWrapper.isFolderGitRepo(self.__gitMessages):
+                print(constants.ERROR + constants.MSG_NOT_A_GIT_REPO)
                 return
             
             status = GitWrapper.getGitStatus(self.__gitMessages)
