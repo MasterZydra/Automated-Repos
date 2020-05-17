@@ -4,7 +4,7 @@ class Params(object):
 
         # arg 0
         try:
-            self.arg0 = self.args[0]
+            self.arg0 = self.args[0].lower()
         except:
             self.arg0 = None
     
