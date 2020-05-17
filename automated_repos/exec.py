@@ -18,16 +18,31 @@ class Exec(object):
             return
         
         elif len(self.__params.args) == 0: # or -- all ....
-            if not GitWrapper.isGitInstalled():
-                print(constants.ERROR + constants.MSG_NO_GIT_INSTALLED)
-            
-            if not self.__importGitMessages(GitWrapper.getGitLanguage()):
+            if not self.__checkEnv():
+                return
                 return
             
             status = GitWrapper.getGitStatus(self.__gitMessages)
         else:
             self.__printHelp()
             return
+
+    def __checkEnv(self):
+        # Check if config file is in directory or parent directories
+        if not os.path.exists(constants.AURE_CONFIG):
+            print(constants.ERROR + constants.MSG_NO_AURE_CONFIG)
+            return False
+        
+        # Check if git is installed
+        if not GitWrapper.isGitInstalled():
+            print(constants.ERROR + constants.MSG_NO_GIT_INSTALLED)
+            return False
+        
+        # Identify git language
+        if not self.__importGitMessages(GitWrapper.getGitLanguage()):
+            return False
+        
+        return True
 
     def __importGitMessages(self, langauge: GitLanguages):
         if langauge == GitLanguages.UNKNOWN:
