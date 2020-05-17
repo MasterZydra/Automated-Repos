@@ -24,6 +24,8 @@ class Exec(object):
             if not self.__checkEnv():
                 return
 
+
+            aureConfig = ConfigReader.readConfig(constants.AURE_CONFIG)
             # Check if folder is a git repositories
             if not GitWrapper.isFolderGitRepo(self.__gitMessages):
                 print(constants.ERROR + constants.MSG_NOT_A_GIT_REPO)
