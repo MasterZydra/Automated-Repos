@@ -7,13 +7,13 @@ Usage:
   aure [command]
 
 Available Commands:
-  exec  Generate shell completion scripts
-  job        Help about any command
-  repo      Set and get gh settings
+  exec                xyz
+  job                 xyz
+  repo                xyz
 
 Flags:
-      --help              Show help for command
-      --version           Show gh version
+  --help              Show help for command
+  --version           Show aure version
 
 Use "aure [command] --help" for more information about a command.
 '''
