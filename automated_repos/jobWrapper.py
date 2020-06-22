@@ -16,14 +16,14 @@ class JobWrapper(object):
 
         # Save config
         ConfigWrapper.writeConfig(config)
-    
+
     @staticmethod
     def remJob(job: str):
         # Load config
         config = ConfigWrapper.loadConfig()
         # Init new config if it does not exist yet
         if config is None:
-            config = AureConfig()
+            return
 
         config.remJob(job.lower())
 
