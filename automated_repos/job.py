@@ -13,6 +13,7 @@ class Job(object):
             self.__printHelp()
             return
         
+        # Add
         elif self.params.arg0 == 'add':
             if len(self.params.args) != 2:
                 print(constants.ERROR + constants.MSG_JOB_NAME_EXPECTED)
@@ -21,10 +22,7 @@ class Job(object):
             JobWrapper.addJob(self.params.arg1)
             return
 
-        elif self.params.arg0 == 'edit':
-            print('edit')
-            return
-
+        # Remove
         elif self.params.arg0 == 'rem':
             if len(self.params.args) != 2:
                 print(constants.ERROR + constants.MSG_JOB_NAME_EXPECTED)
@@ -33,6 +31,7 @@ class Job(object):
             JobWrapper.remJob(self.params.arg1)
             return
 
+        # Show
         elif self.params.arg0 == 'show':
             JobWrapper.showJobs()
             return
