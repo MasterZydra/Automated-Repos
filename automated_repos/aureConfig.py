@@ -9,7 +9,7 @@ class AureConfig(object):
         self.__jobs[jobName] = list()
 
     def remJob(self, jobName: str):
-        if jobName in self.__jobs:
+        if not jobName in self.__jobs:
             return
         
         self.__jobs.pop(jobName)
