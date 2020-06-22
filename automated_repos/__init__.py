@@ -43,15 +43,15 @@ def main(config_file=None, args=None, config=None):
         return
     
     elif params.arg0 == 'exec':
-        Exec(getNextArgLevel(params)).run()
+        Exec(Params.nextArgLevel(params)).run()
         return
     
     elif params.arg0 == 'job':
-        Job(getNextArgLevel(params)).run()
+        Job(Params.nextArgLevel(params)).run()
         return
 
     elif params.arg0 == 'repo':
-        Repo(getNextArgLevel(params)).run()
+        Repo(Params.nextArgLevel(params)).run()
         return
 
     else:
@@ -63,8 +63,3 @@ def main(config_file=None, args=None, config=None):
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 def printHelp():
     print(help_aure.__doc__)
-
-def getNextArgLevel(params: Params):
-    nextParams = params
-    nextParams.args = params.getNextArgLevel()
-    return nextParams
