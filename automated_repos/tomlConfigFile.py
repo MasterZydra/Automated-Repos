@@ -3,7 +3,7 @@ import toml
 from . import constants
 from .aureConfig import AureConfig
 
-class ConfigReader(object):
+class TomlConfigFile(object):
     @staticmethod
     def readConfig(file: str) -> AureConfig:
         aureConfig = AureConfig()
