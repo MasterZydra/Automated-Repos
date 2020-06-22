@@ -1,6 +1,8 @@
 # Import helper classes
-from .params import Params
 from . import help_job
+from . import constants
+from .params import Params
+from .jobWrapper import JobWrapper
 
 class Job(object):
     def __init__(self, params: Params):
@@ -11,6 +13,26 @@ class Job(object):
             self.__printHelp()
             return
         
+        elif self.params.arg0 == 'add':
+            if len(self.params.args) != 2:
+                print(constants.ERROR + constants.MSG_JOB_NAME_EXPECTED)
+                return
+
+            JobWrapper.addJob(self.params.arg1)
+            return
+
+        elif self.params.arg0 == 'edit':
+            print('edit')
+            return
+
+        elif self.params.arg0 == 'rem':
+            print('rem')
+            return
+
+        elif self.params.arg0 == 'show':
+            print('show')
+            return
+
         else:
             self.__printHelp()
             return
