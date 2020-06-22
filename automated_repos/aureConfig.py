@@ -9,15 +9,15 @@ class AureConfig(object):
         self.__jobs[jobName] = list()
         return
 
-    def addToJob(self, jobName: str, directory: str):
+    def addRepoToJob(self, jobName: str, directory: str):
         self.addJob(jobName)
         self.__jobs.get(jobName).append(directory)
 
-    def addListToJob(self, jobName: str, directories: list):
+    def addReposToJob(self, jobName: str, directories: list):
         self.addJob(jobName)
         self.__jobs.get(jobName).extend(directories)
 
-    def getJob(self, jobName: str):
+    def getRepos(self, jobName: str):
         if jobName in self.__jobs:
             return self.__jobs.get(jobName)
         return None
