@@ -27,5 +27,5 @@ class AureConfig(object):
             return self.__jobs.get(jobName)
         return None
     
-    def getJobs(self):
-        return [*self.__jobs.keys()]
+    def getJobs(self) -> list:
+        return [*self.__jobs]
