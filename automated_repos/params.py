@@ -7,6 +7,11 @@ class Params(object):
             self.arg0 = self.args[0].lower()
         except:
             self.arg0 = None
-    
-    def getNextArgLevel(self):
-        return self.args[1:]
+
+        # arg 1
+        if len(self.args) >= 2:
+            self.arg1 = self.args[1]
+
+    @staticmethod
+    def nextArgLevel(params):
+        return Params(params.args[1:])
