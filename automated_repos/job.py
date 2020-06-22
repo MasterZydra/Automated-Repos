@@ -26,11 +26,15 @@ class Job(object):
             return
 
         elif self.params.arg0 == 'rem':
-            print('rem')
+            if len(self.params.args) != 2:
+                print(constants.ERROR + constants.MSG_JOB_NAME_EXPECTED)
+                return
+
+            JobWrapper.remJob(self.params.arg1)
             return
 
         elif self.params.arg0 == 'show':
-            print('show')
+            JobWrapper.showJobs()
             return
 
         else:
