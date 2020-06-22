@@ -7,7 +7,12 @@ class AureConfig(object):
             return
         
         self.__jobs[jobName] = list()
-        return
+
+    def remJob(self, jobName: str):
+        if jobName in self.__jobs:
+            return
+        
+        self.__jobs.pop(jobName)
 
     def addRepoToJob(self, jobName: str, directory: str):
         self.addJob(jobName)
