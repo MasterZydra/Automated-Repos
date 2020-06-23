@@ -4,8 +4,8 @@ Usage:
   aure repo [command]
 
 Available Commands:
-  add [path]          Add job [path] to config or create config
-  rem [path]          Remove repository [path]
+  add [path] [job]    Add repository [path] to [job]
+  rem [path] [job]    Remove repository [path] from [job]
   show                Show all repositories
 
 Flags:
