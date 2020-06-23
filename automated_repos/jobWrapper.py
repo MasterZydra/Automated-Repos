@@ -12,7 +12,7 @@ class JobWrapper(object):
         if config is None:
             config = AureConfig()
 
-        config.addJob(job.lower())
+        config.addJob(job)
 
         # Save config
         ConfigWrapper.writeConfig(config)
@@ -25,7 +25,7 @@ class JobWrapper(object):
         if config is None:
             return
 
-        config.remJob(job.lower())
+        config.remJob(job)
 
         # Save config
         ConfigWrapper.writeConfig(config)
@@ -51,6 +51,9 @@ class JobWrapper(object):
         print('Details:')
         print('--------')
         for job in config.getJobs():
-            print('- ' + job + ':')
-
+            repos = sep.join(config.getRepos(job))
+            print('- ' + job)
+            if repos != '':
+                print('  Repos:')
+                print('    ' + repos)
             print('')
