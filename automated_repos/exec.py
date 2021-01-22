@@ -54,15 +54,19 @@ class Exec(object):
         return True
 
     def __importGitMessages(self, langauge: GitLanguages):
+        # Unknown
         if langauge == GitLanguages.UNKNOWN:
             print(constants.ERROR + constants.MSG_LANG_IS_UNKNOWN)
             return False
+        # DE
         if langauge == GitLanguages.DE:
             from .gitMessages_DE import GitMessages_DE
             self.__gitMessages = GitMessages_DE
+        # EN
         elif langauge == GitLanguages.EN:
             from .gitMessages_EN import GitMessages_EN
             self.__gitMessages = GitMessages_EN
+        # Not supported
         else:
             print(constants.ERROR + constants.MSG_LANG_NOT_SUPPORTED)
             return False
